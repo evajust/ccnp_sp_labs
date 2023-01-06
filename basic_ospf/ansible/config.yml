@@ -1,13 +1,37 @@
 ---
-- name: 1. Configure OSPF
+- name: 1. Configure Interfaces
   hosts: all_routers
   gather_facts: no
   connection: network_cli
   tasks:
-    - name: 1.1 Apply Common OSPF Config
-      lines: "{{ lookup('template', 'config_global_ospf.j2') }}"
-      backup: yes
-    - name: 1.2 Apply IOS-XR Additions for OSPF
-      lines: "{{ lookup('template', 'config_xr_ospf.j2') }}"
-      backup: yes
+    - name: 1.1 Apply IOS-XE Interface Config
+      ios_config:
+        lines:
+          - "{{ lookup('template', 'config_global_interfaces.j2') }}"
+        backup: yes
+      when: rtr.platform == 'xe'
+    - name: 1.2 Apply IOS-XR Interface Config
+      iosxr_config:
+        lines:
+          - "{{ lookup('template', 'config_global_interfaces.j2') }}"
+        backup: yes
+      when: rtr.platform == 'xr'
+- name: 2. Configure OSPF
+  hosts: all_routers
+  gather_facts: no
+  connection: network_cli
+  tasks:
+    - name: 2.1 Apply IOS-XE OSPF Config
+      ios_config:
+        lines:
+          - "{{ lookup('template', 'config_global_ospf.j2') }}"
+          - "{{ lookup('template', 'config_xe_ospf.j2') }}"
+        backup: yes
+      when: rtr.platform == 'xe'
+    - name: 2.2 Apply IOS-XR Additions for OSPF
+      iosxr_config:
+        lines:
+          - "{{ lookup('template', 'config_global_ospf.j2') }}"
+          - "{{ lookup('template', 'config_xr_ospf.j2') }}"
+        backup: yes
       when: rtr.platform == 'xr'

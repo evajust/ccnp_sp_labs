@@ -1,8 +1,9 @@
 ---
 rtr:
   name: CE2
-  platform: ios
-  lo: { name: Loopback0,
+  platform: xe
+  lo:  
+    - { name: Loopback0,
         description: Configured by Ansible,
         ip: 10.100.100.6,
         mask: 255.255.255.0,

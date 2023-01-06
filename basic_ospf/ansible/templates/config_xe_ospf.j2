@@ -1,0 +1,4 @@
+{% for int in rtr.gis %}
+interface {{ int.name }}
+  ip ospf {{ all.ospf_id }} area {{ int.ospf_area }}
+{% endfor %}

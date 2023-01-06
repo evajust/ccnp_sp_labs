@@ -1,0 +1,10 @@
+{% for int in rtr.lo %}
+interface {{ int.name }}
+  ip address {{ int.ip }} {{ int.mask }}
+{% endfor %}
+
+{% for int in rtr.gis %}
+interface {{ int.name }}
+  ip address {{ int.ip }} {{ int.mask }}
+  no shutdown
+{% endfor %}

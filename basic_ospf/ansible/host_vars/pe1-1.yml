@@ -2,7 +2,8 @@
 rtr:
   name: PE1-1
   platform: xr
-  lo: { name: Loopback0,
+  lo:  
+    - { name: Loopback0,
         description: Configured by Ansible,
         ip: 10.100.100.1,
         mask: 255.255.255.0,

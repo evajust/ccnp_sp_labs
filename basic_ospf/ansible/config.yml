@@ -1,0 +1,13 @@
+---
+- name: 1. Configure OSPF
+  hosts: all_routers
+  gather_facts: no
+  connection: network_cli
+  tasks:
+    - name: 1.1 Apply Common OSPF Config
+      lines: "{{ lookup('template', 'config_global_ospf.j2') }}"
+      backup: yes
+    - name: 1.2 Apply IOS-XR Additions for OSPF
+      lines: "{{ lookup('template', 'config_xr_ospf.j2') }}"
+      backup: yes
+      when: rtr.platform == 'xr'

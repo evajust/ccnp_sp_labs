@@ -2,7 +2,19 @@
 rtr:
   name: CE1
   platform: xr
-  lo: { name: Loopback0, ip: 10.100.100.5, mask: 255.255.255.0, description: Configured by Ansible }
+  lo: { name: Loopback0,
+        description: Configured by Ansible,
+        ip: 10.100.100.5,
+        mask: 255.255.255.0,
+        ospf_area: 1 }
   gis:
-    - { name: GigabitEthernet0/0/0/3, ip: 10.100.15.2, mask: 255.255.255.252, description: Link to PE1-1}
-    - { name: GigabitEthernet0/0/0/4, ip: 10.100.35.2, mask: 255.255.255.252, description: Link to PE1-2}
+    - { name: GigabitEthernet0/0/0/3,
+        description: Link to PE1-1,
+        ip: 10.100.15.2,
+        mask: 255.255.255.252,
+        ospf_area: 1 }
+    - { name: GigabitEthernet0/0/0/4,
+        description: Link to PE1-2,
+        ip: 10.100.35.2,
+        mask: 255.255.255.252,
+        ospf_area: 1 }

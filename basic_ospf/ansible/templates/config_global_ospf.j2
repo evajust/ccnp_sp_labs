@@ -1,0 +1,9 @@
+router ospf {{ all.ospf_id }}
+  router-id {{ rtr.lo.ip }}
+
+{% for int in rtr.gis %}
+  area {{ int.ospf_area }}
+  interface {{ int.name }}
+{% endfor %}
+  area {{ lo.ospf_area }}
+  interface {{ lo.name }}

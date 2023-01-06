@@ -2,9 +2,29 @@
 rtr:
   name: PE1-2
   platform: ios
-  lo: { name: Loopback0, ip: 10.100.100.3, mask: 255.255.255.0, description: Configured by Ansible }
+  lo: { name: Loopback0,
+        description: Configured by Ansible,
+        ip: 10.100.100.3,
+        mask: 255.255.255.0,
+        ospf_area: 0 }
   gis:
-    - { name: GigabitEthernet1, ip: 10.100.34.1, mask: 255.255.255.252, description: Link to PE2-2}
-    - { name: GigabitEthernet2, ip: 10.100.23.2, mask: 255.255.255.252, description: Link to PE2-1}
-    - { name: GigabitEthernet3, ip: 10.100.13.2, mask: 255.255.255.252, description: Link to PE1-1}
-    - { name: GigabitEthernet4, ip: 10.100.35.1, mask: 255.255.255.252, description: Link to CE1}
+    - { name: GigabitEthernet1,
+        description: Link to PE2-2,
+        ip: 10.100.34.1,
+        mask: 255.255.255.252,
+        ospf_area: 0 }
+    - { name: GigabitEthernet2,
+        description: Link to PE2-1,
+        ip: 10.100.23.2,
+        mask: 255.255.255.252,
+        ospf_area: 0 }
+    - { name: GigabitEthernet3,
+        description: Link to PE1-1,
+        ip: 10.100.13.2,
+        mask: 255.255.255.252,
+        ospf_area: 1 }
+    - { name: GigabitEthernet4,
+        description: Link to CE1,
+        ip: 10.100.35.1,
+        mask: 255.255.255.252,
+        ospf_area: 1 }

@@ -1,0 +1,8 @@
+---
+rtr:
+  name: CE2
+  platform: ios
+  lo: { name: Loopback0, ip: 10.100.100.6, mask: 255.255.255.0, description: Configured by Ansible }
+  gis:
+    - { name: GigabitEthernet3, ip: 10.100.26.2, mask: 255.255.255.252, description: Link to PE2-1}
+    - { name: GigabitEthernet4, ip: 10.100.46.2, mask: 255.255.255.252, description: Link to PE2-2}

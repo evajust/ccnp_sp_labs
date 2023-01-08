@@ -1,0 +1,30 @@
+- name: Add interface to IOSXE
+  hosts: pe2-1
+  connection: netconf
+  gather_facts: False
+
+  tasks:
+    - set_fact:
+        ansible_connection: local
+
+    - name: Create a loopback Loopback100 with NETCONF
+      netconf_config:
+        content: |
+            <config>
+              <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+                <interface>
+                  <name>Loopback1001</name>
+                  <description>Pod Number 100</description>
+                  <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">
+                    ianaift:softwareLoopback
+                  </type>
+                  <enabled>true</enabled>
+                  <ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip">
+                    <address>
+                      <ip>10.111.100.3</ip>
+                      <netmask>255.255.255.255</netmask>
+                    </address>
+                  </ipv4>
+                </interface>
+              </interfaces>
+            </config>

@@ -1,0 +1,13 @@
+---
+- name: 1. Verify OSPF Neighbors
+  hosts: pe2-1
+  gather_facts: no
+  connection: netconf
+  vars:
+  ansible_python_interpreter: /usr/bin/python3
+  tasks:
+      - name: 1.1 Verify Neighbor Count
+        netconf_get:
+            display: xml
+            filter: "{{ lookup('file', 'verify_xe_ospf.xml') }}"
+        register: ospf_neighbors

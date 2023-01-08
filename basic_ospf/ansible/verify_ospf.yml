@@ -1,0 +1,39 @@
+---
+- name: 1. Verify OSPF Neighbors on PE Routers
+  hosts: pe_routers
+  gather_facts: no
+  connection: network_cli
+  tasks:
+      - name: 1.1 Verify Number of Neighbors IOS-XE
+        ios_command:
+            commands:
+                - show ip ospf neighbor | count FULL
+            wait_for:
+                - result[0] contains "4"
+        when: rtr.platform == 'xe'
+      - name: 1.2 Verify Number of Neighbors IOS-XR
+        iosxr_command:
+            commands:
+                - show ip ospf neighbor | include FULL | utility wc -l
+            wait_for:
+                - result contains "4"
+        when: rtr.platform == 'xr'
+- name: 1. Verify OSPF Neighbors on CE Routers
+  hosts: ce_routers
+  gather_facts: no
+  connection: network_cli
+  tasks:
+      - name: 1.1 Verify Number of Neighbors IOS-XE
+        ios_command:
+            commands:
+                - show ip ospf neighbor | count FULL
+            wait_for:
+                - result[0] contains "2"
+        when: rtr.platform == 'xe'
+      - name: 1.2 Verify Number of Neighbors IOS-XR
+        iosxr_command:
+            commands:
+                - show ip ospf neighbor | include FULL | utility wc -l
+            wait_for:
+                - result contains "2"
+        when: rtr.platform == 'xr'

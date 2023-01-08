@@ -1,0 +1,7 @@
+<fib-oper-data xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-fib-oper">
+  <fib-ni-entry>
+    <instance-name/>
+    <num-pfx/>
+    <num-pfx-fwd/>
+  </fib-ni-entry>
+</fib-oper-data>

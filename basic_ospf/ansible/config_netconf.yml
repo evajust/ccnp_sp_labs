@@ -1,0 +1,17 @@
+---
+- name: 1. Enable NETCONF IOS-XE
+  hosts: xe_routers
+  gather_facts: no
+  connection: network_cli
+  tasks:
+      - ios_config:
+          lines:
+              - "{{ lookup('template', 'config_xe_netconf.j2') }}"
+- name: 2. Enable NETCONF IOS-XR
+  hosts: xr_routers
+  gather_facts: no
+  connection: network_cli
+  tasks:
+      - iosxr_config:
+          lines:
+              - "{{ lookup('template', 'config_xr_netconf.j2') }}"

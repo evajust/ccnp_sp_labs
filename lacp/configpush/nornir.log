@@ -1,0 +1,466 @@
+2023-11-04 02:59:57,424 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 02:59:57,425 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Loading variables...' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: './host_vars/R1.yaml'
+
+2023-11-04 02:59:57,425 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 23, in load_vars
+    data = task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Loading variables... (failed)
+
+
+2023-11-04 02:59:57,426 -  nornir.core -  WARNING -        run() - Task 'FULL CONFIG' has not been run – 0 hosts selected
+2023-11-04 02:59:57,426 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 03:01:12,804 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 03:01:12,808 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 03:01:12,814 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Building device config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "R1.jinja", line 1, in top-level template code
+    {% include '../../modules/lacp.jinja' %}
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/loaders.py", line 195, in get_source
+    pieces = split_template_path(template)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/loaders.py", line 36, in split_template_path
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: ../../modules/lacp.jinja
+
+2023-11-04 03:01:12,814 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 36, in build_config
+    device_template = task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Building device config (failed)
+
+
+2023-11-04 03:01:12,816 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 03:04:18,843 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 03:04:18,848 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 03:04:18,853 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Building device config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "R1.jinja", line 1, in top-level template code
+    {% include './templates/lacp.jinja' %}
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: ./templates/lacp.jinja
+
+2023-11-04 03:04:18,854 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 36, in build_config
+    device_template = task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Building device config (failed)
+
+
+2023-11-04 03:04:18,855 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 03:09:10,599 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 03:09:10,603 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 03:09:10,608 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Building device config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "R1.jinja", line 1, in top-level template code
+    {% include '/home/ec2-user/workspaces/configpush/templates/lacp.jinja' %}
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /home/ec2-user/workspaces/configpush/templates/lacp.jinja
+
+2023-11-04 03:09:10,609 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 36, in build_config
+    device_template = task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Building device config (failed)
+
+
+2023-11-04 03:09:10,610 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 03:51:10,462 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 03:51:10,467 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 03:51:10,469 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Building device config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R1.jinja
+
+2023-11-04 03:51:10,469 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 36, in build_config
+    device_template = task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Building device config (failed)
+
+
+2023-11-04 03:51:10,470 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 03:51:28,652 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 03:51:28,657 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 03:51:28,661 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Building device config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "R1.jinja", line 1, in top-level template code
+    {% include 'lacp.jinja' %}
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: lacp.jinja
+
+2023-11-04 03:51:28,662 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 36, in build_config
+    device_template = task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Building device config (failed)
+
+
+2023-11-04 03:51:28,663 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 04:18:44,727 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 04:18:44,731 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 04:18:44,736 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Building device config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "R1.jinja", line 1, in top-level template code
+    {% include '/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/templates/lacp.jinja' %}
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/templates/lacp.jinja
+
+2023-11-04 04:18:44,736 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 36, in build_config
+    device_template = task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Building device config (failed)
+
+
+2023-11-04 04:18:44,737 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 04:19:10,449 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 04:19:10,454 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 04:19:10,463 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Building device config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "R1.jinja", line 1, in top-level template code
+    {% include 'lacp.jinja' %}
+  File "lacp.jinja", line 2, in top-level template code
+    {% for lag in lag_list -%}
+jinja2.exceptions.UndefinedError: 'lag_list' is undefined
+
+2023-11-04 04:19:10,463 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 36, in build_config
+    device_template = task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Building device config (failed)
+
+
+2023-11-04 04:19:10,464 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 04:20:22,226 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 04:20:22,230 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 04:20:22,238 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Building device config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "R1.jinja", line 1, in top-level template code
+    {% include 'lacp.jinja' %}
+  File "lacp.jinja", line 2, in top-level template code
+    {% for lag in lag_list -%}
+jinja2.exceptions.UndefinedError: 'lag_list' is undefined
+
+2023-11-04 04:20:22,238 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 36, in build_config
+    device_template = task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Building device config (failed)
+
+
+2023-11-04 04:20:22,239 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 04:24:47,678 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 04:24:47,684 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 04:24:47,691 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Building device config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "R1.jinja", line 1, in top-level template code
+    {% include 'lacp.jinja' %}
+  File "lacp.jinja", line 2, in top-level template code
+    {% for lag in lag_list -%}
+jinja2.exceptions.UndefinedError: 'lag_list' is undefined
+
+2023-11-04 04:24:47,692 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 36, in build_config
+    device_template = task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Building device config (failed)
+
+
+2023-11-04 04:24:47,692 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 04:25:42,111 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 04:25:42,116 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 04:25:42,350 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Automating Deployment' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli/transport/plugins/system/ptyprocess.py", line 483, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli/transport/plugins/system/transport.py", line 158, in read
+    buf = self.session.read(65535)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli/transport/plugins/system/ptyprocess.py", line 488, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_scrapli/tasks/netconf/edit_config.py", line 38, in netconf_edit_config
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_scrapli/connection.py", line 287, in open
+    connection.open()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli_netconf/driver/sync_driver.py", line 117, in open
+    self.channel.channel_authenticate_netconf(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 102, in channel_authenticate_netconf
+    buf = self.read()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli_netconf/channel/sync_channel.py", line 220, in read
+    return super().read()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli/channel/sync_channel.py", line 69, in read
+    buf = self.transport.read()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli/decorators.py", line 223, in decorate
+    return _multiprocessing_timeout(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli/decorators.py", line 114, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/usr/lib64/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/scrapli/transport/plugins/system/transport.py", line 165, in read
+    raise ScrapliConnectionError(msg) from exc
+scrapli.exceptions.ScrapliConnectionError: encountered EOF reading from transport; typically means the device closed the connection
+
+2023-11-04 04:25:42,351 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 43, in build_config
+    task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Automating Deployment (failed)
+
+
+2023-11-04 04:25:42,352 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 04:35:54,634 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 04:35:54,639 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 04:35:54,643 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'Building device config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "R1.jinja", line 1, in top-level template code
+    {% include 'lacp.jinja' %}
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/jinja2/loaders.py", line 218, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: lacp.jinja
+
+2023-11-04 04:35:54,644 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 36, in build_config
+    device_template = task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Building device config (failed)
+
+
+2023-11-04 04:35:54,645 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 04:36:17,387 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 04:36:17,391 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 04:36:21,819 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 43, in build_config
+    task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Automating Deployment (failed)
+
+
+2023-11-04 04:36:21,820 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 05:30:39,983 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 05:30:39,987 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 05:30:44,403 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 39, in build_config
+    task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Automating Deployment (failed)
+
+
+2023-11-04 05:30:44,404 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 05:31:40,044 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 05:31:40,049 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 05:31:44,435 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 39, in build_config
+    task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Automating Deployment (failed)
+
+
+2023-11-04 05:31:44,437 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 05:45:03,996 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 05:45:04,001 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 05:45:08,414 -  nornir.core -     INFO -        run() - Running task 'NETCONF_COMMIT' with args {} on 1 hosts
+2023-11-04 07:01:41,320 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 07:01:41,325 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 07:01:45,778 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'FULL CONFIG' failed with traceback:
+Traceback (most recent call last):
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/ec2-user/workspaces/ccnp_sp_labs/lacp/configpush/../../../configpush/send_config_netconf.py", line 39, in build_config
+    task.run(
+  File "/home/ec2-user/workspaces/configpush/.venv/lib64/python3.9/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Automating Deployment (failed)
+
+
+2023-11-04 07:01:45,779 -  nornir.core -  WARNING -        run() - Task 'NETCONF_COMMIT' has not been run – 0 hosts selected
+2023-11-04 07:24:53,597 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 07:24:53,602 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 07:24:58,018 -  nornir.core -     INFO -        run() - Running task 'NETCONF_COMMIT' with args {} on 1 hosts
+2023-11-04 07:25:58,652 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 07:25:58,656 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 07:26:03,086 -  nornir.core -     INFO -        run() - Running task 'NETCONF_COMMIT' with args {} on 1 hosts
+2023-11-04 07:26:12,346 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2023-11-04 07:26:12,351 -  nornir.core -     INFO -        run() - Running task 'FULL CONFIG' with args {} on 1 hosts
+2023-11-04 07:26:16,804 -  nornir.core -     INFO -        run() - Running task 'NETCONF_COMMIT' with args {} on 1 hosts

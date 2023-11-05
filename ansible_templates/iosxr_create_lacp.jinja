@@ -1,0 +1,11 @@
+{% for lag in lag_list -%}
+interface Bundle-Ether{{lag.id}}
+  ipv{{lag.ip_version}} address {{lag.ip}}/{{lag.cidr}}
+  lacp mode active
+
+  {% for interface in lag.interface_list -%}
+interface {{interface}}
+  bundle id {{lag.id}}
+  no shutdown
+  {% endfor -%}
+{% endfor -%}

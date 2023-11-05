@@ -7,5 +7,5 @@
   tasks:
     - name: "Send LACP Config"
       cisco.iosxr.iosxr_config:
-        src: "../../ansible_templates/iosxr_create_lacp.jinja"
+        src: "../../cli-templates/iosxr_create_lacp.jinja"
 

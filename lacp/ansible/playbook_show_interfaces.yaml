@@ -1,0 +1,17 @@
+---
+
+- name: "LACP Config"
+  hosts: all
+  connection: network_cli
+
+  tasks:
+    - name: "Sending show command"
+      cisco.iosxr.iosxr_command:
+        commands:
+          - show ip interface brief
+      register: command_output
+
+    - name: "Print the output"
+      debug:
+        msg: "{{ command_output }}"
+

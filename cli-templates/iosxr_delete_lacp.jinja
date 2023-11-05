@@ -1,0 +1,9 @@
+{% for lag in lag_list -%}
+no interface Bundle-Ether{{lag.id}}
+
+  {% for interface in lag.interface_list -%}
+interface {{interface}}
+  no bundle id {{lag.id}}
+  shutdown
+  {% endfor -%}
+{% endfor -%}

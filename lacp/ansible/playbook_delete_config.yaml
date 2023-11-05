@@ -1,0 +1,11 @@
+---
+
+- name: "LACP Config"
+  hosts: all
+  connection: network_cli
+
+  tasks:
+    - name: "Send LACP Config"
+      cisco.iosxr.iosxr_config:
+        src: "../../cli-templates/iosxr_delete_lacp.jinja"
+

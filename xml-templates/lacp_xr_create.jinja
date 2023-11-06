@@ -1,7 +1,7 @@
      <interfaces xmlns="http://openconfig.net/yang/interfaces">
      {% for lag in host.facts.lag_list -%}
        {% for int in lag.interface_list -%}
-       <interface>
+       <interface operation="replace">
          <name>{{int}}</name>
          <config>
            <enabled>true</enabled>
@@ -12,7 +12,7 @@
      </interfaces>
      <interfaces xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg">
      {% for lag in host.facts.lag_list -%}
-       <interface>
+       <interface operation="replace">
          <interface-name>Bundle-Ether{{lag.id}}</interface-name>
          {% if lag.ip_version == 4 -%}
          <ipv4>
@@ -29,7 +29,7 @@
          </lacp>
        </interface>
        {% for int in lag.interface_list -%}
-       <interface>
+       <interface operation="replace">
          <interface-name>{{int}}</interface-name>
          <bundle xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-bundle-cfg">
            <id>

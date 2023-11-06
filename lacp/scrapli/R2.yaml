@@ -3,10 +3,10 @@
 lag_list:
   - id: 1
     ip_version: 4
-    ip: 10.255.1.2
-    prefix_length: 255.255.255.254
+    ip: 10.255.2.1
+    prefix_length: 31
     interface_list:
-      - G2
-      - G3
-      - G4
-      - G5
+      - GigabitEthernet2
+      - GigabitEthernet3
+      - GigabitEthernet4
+      - GigabitEthernet5

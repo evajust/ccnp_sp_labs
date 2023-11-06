@@ -1,8 +1,14 @@
 ---
 
 R1:
-  hostname: "sandbox-iosxr-1.cisco.com"
-  username: "admin"
-  password: "C1sco12345"
+  hostname: "192.168.2.1"
+  username: "cisco"
+  password: "cisco"
+  groups:
+    - cisco_group
+R2:
+  hostname: "192.168.2.2"
+  username: "cisco"
+  password: "cisco"
   groups:
     - cisco_group

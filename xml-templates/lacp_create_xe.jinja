@@ -1,0 +1,65 @@
+<config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <interfaces xmlns="http://openconfig.net/yang/interfaces">
+    {% for lag in host.facts.lag_list -%}
+      <interface>
+        <name>Port-channel{{lag.id}}</name>
+        <config operation="replace">
+          <name>Port-channel{{lag.id}}</name>
+          <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:propVirtual</type>
+          <enabled>true</enabled>
+        </config>
+        <subinterfaces>
+          <subinterface>
+            <index>0</index>
+            <config operation="replace">
+              <index>0</index>
+              <enabled>true</enabled>
+            </config>
+            <ipv{{lag.ip_version}} xmlns="http://openconfig.net/yang/interfaces/ip">
+              <addresses>
+                <address>
+                  <ip>{{lag.ip}}</ip>
+                  <config operation="replace">
+                    <ip>{{lag.ip}}</ip>
+                    <prefix-length>{{lag.prefix_length}}</prefix-length>
+                  </config>
+                </address>
+              </addresses>
+            </ipv4>
+          </subinterface>
+        </subinterfaces>
+        <aggregation xmlns="http://openconfig.net/yang/interfaces/aggregate">
+          <config operation="replace">
+            <lag-type>STATIC</lag-type>
+          </config>
+        </aggregation>
+      </interface>
+      {% for interface in lag.interface_list -%}
+      <interface>
+        <name>{{interface}}</name>
+        <config operation="replace">
+          <name>{{interface}}</name>
+          <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+          <enabled>true</enabled>
+        </config>
+        <subinterfaces>
+          <subinterface>
+            <index>0</index>
+            <config operation="replace">
+              <index>0</index>
+              <enabled>true</enabled>
+            </config>
+          </subinterface>
+        </subinterfaces>
+        <ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+          <config operation="replace">
+            <auto-negotiate>true</auto-negotiate>
+            <enable-flow-control>true</enable-flow-control>
+            <aggregate-id xmlns="http://openconfig.net/yang/interfaces/aggregate">Port-channel{{lag.id}}</aggregate-id>
+          </config>
+        </ethernet>
+      </interface>
+      {% endfor -%}
+    {% endfor -%}
+    </interfaces>
+</config>

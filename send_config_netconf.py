@@ -45,7 +45,7 @@ def load_vars(task, lab):
 
     data = task.run(
             task=load_yaml,
-            name="Loading variables...",
+            name=f"Loading variables for {task.host}",
             file=f"{lab}/scrapli/{task.host}.yaml",
     )
     task.host["facts"] = data.result
@@ -58,7 +58,7 @@ def lock_config(task):
 def build_config(task, lab):
     device_template = task.run(
             task=template_file,
-            name="Building device config",
+            name=f"Building device config for {task.host}",
             template=f"{lab}/scrapli/{task.host}.jinja",
             path="./",
             )
@@ -77,7 +77,7 @@ def commit_configs(task):
     """
     task.run(
         task=netconf_commit,
-        name="Committing Changes into the Running Configuration"
+        name=f"Committing Changes for {task.host}"
     )
 
 

@@ -1,19 +1,19 @@
     <interfaces xmlns="http://openconfig.net/yang/interfaces">
     {% for lag in host.facts.lag_list -%}
       <interface operation="replace">
-        <name>Port-channel{{lag.id}}</name>
+        <name>{{lag.name}}</name>
         <config>
-          <name>Port-channel{{lag.id}}</name>
+          <name>{{lag.name}}</name>
+          {% if host.facts.platform == 'ios_xe' -%}
           <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:propVirtual</type>
+          {% elif host.facts.platform == 'ios_xr' -%}
+          <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:ieee8023adLag</type>
+          {% endif -%}
           <enabled>true</enabled>
         </config>
         <subinterfaces>
           <subinterface>
             <index>0</index>
-            <config>
-              <index>0</index>
-              <enabled>true</enabled>
-            </config>
             <ipv{{lag.ip_version}} xmlns="http://openconfig.net/yang/interfaces/ip">
               <addresses>
                 <address>
@@ -29,7 +29,7 @@
         </subinterfaces>
         <aggregation xmlns="http://openconfig.net/yang/interfaces/aggregate">
           <config>
-            <lag-type>STATIC</lag-type>
+            <lag-type>LACP</lag-type>
           </config>
         </aggregation>
       </interface>
@@ -38,7 +38,11 @@
         <name>{{interface}}</name>
         <config>
           <name>{{interface}}</name>
+          {% if host.facts.platform == 'ios_xe' -%}
           <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+          {% elif host.facts.platform == 'ios_xr' -%}
+          <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:ethernetCsmacd</type>
+          {% endif -%}
           <enabled>true</enabled>
         </config>
         <subinterfaces>
@@ -51,10 +55,12 @@
           </subinterface>
         </subinterfaces>
         <ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
-          <config>
+           <config>
+           {% if host.facts.platform == 'ios_xe' -%}
             <auto-negotiate>true</auto-negotiate>
             <enable-flow-control>true</enable-flow-control>
-            <aggregate-id xmlns="http://openconfig.net/yang/interfaces/aggregate">Port-channel{{lag.id}}</aggregate-id>
+           {% endif -%}
+            <aggregate-id xmlns="http://openconfig.net/yang/interfaces/aggregate">{{lag.name}}</aggregate-id>
           </config>
         </ethernet>
       </interface>

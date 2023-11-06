@@ -36,8 +36,6 @@ def set_config(lab):
                 "num_workers": 10}}}
 
 
-
-
 def load_vars(task, lab):
     """
     Load host variables and bind them to the per-host dict key "facts".
@@ -91,10 +89,14 @@ def main():
     nr = InitNornir(**set_config(lab))
     var = nr.run(task=load_vars, lab=lab)
     print_result(var)
-    config_build_results = nr.run(task=build_config, lab=lab, name="FULL CONFIG")
+    lock_result = nr.run(task=lock_config, name="NETCONF Lock")
+    print_result(lock_result)
+    config_build_results = nr.run(task=build_config, lab=lab, name="Config Build")
     print_result(config_build_results)
-    commit_results = nr.run(task=commit_configs, name="NETCONF_COMMIT")
+    commit_results = nr.run(task=commit_configs, name="NETCONF Commit")
     print_result(commit_results)
+    unlock_result = nr.run(task=unlock_config, name="NETCONF Unlock")
+    print_result(unlock_result)
 
 
 if __name__ == "__main__":

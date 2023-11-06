@@ -3,8 +3,10 @@
 lag_list:
   - id: 1
     ip_version: 4
-    ip: 10.255.1.1
-    cidr: 24
+    ip: 10.255.1.0
+    cidr: 31
     interface_list:
-      - GigabitEthernet0/0/0/5
-      - GigabitEthernet0/0/0/6
+      - GigabitEthernet0/0/0/0
+      - GigabitEthernet0/0/0/1
+      - GigabitEthernet0/0/0/2
+      - GigabitEthernet0/0/0/3

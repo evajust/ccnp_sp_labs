@@ -1,11 +1,20 @@
 ---
 
 - name: "LACP Config"
-  hosts: all
+  hosts: ios_xr
   connection: network_cli
 
   tasks:
     - name: "Send LACP Config"
       cisco.iosxr.iosxr_config:
         src: "../../cli-templates/iosxr_create_lacp.jinja"
+
+- name: "LACP Config"
+  hosts: ios_xe
+  connection: network_cli
+
+  tasks:
+    - name: "Send LACP Config"
+      cisco.ios.ios_config:
+        src: "../../cli-templates/iosxe_create_lacp.jinja"
 

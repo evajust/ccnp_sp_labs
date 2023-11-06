@@ -1,0 +1,9 @@
+{% for lag in lag_list -%}
+no interface Port-channel{{lag.id}}
+
+  {% for interface in lag.interface_list -%}
+interface {{interface}}
+  default channel-group
+  shutdown
+  {% endfor -%}
+{% endfor -%}

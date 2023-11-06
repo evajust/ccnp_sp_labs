@@ -1,0 +1,11 @@
+{% for lag in lag_list -%}
+interface Port-channel{{lag.id}}
+  {% if lag.ip_version == 4 -%}
+  ip address {{lag.ip}} {{lag.mask}}
+  {% endif %}
+  {% for interface in lag.interface_list -%}
+interface {{interface}}
+  channel-group {{lag.id}} mode active
+  no shutdown
+  {% endfor -%}
+{% endfor -%}

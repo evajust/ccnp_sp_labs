@@ -5,7 +5,7 @@ interface Bundle-Ether{{lag.id}}
 
   {% for interface in lag.interface_list -%}
 interface {{interface}}
-  bundle id {{lag.id}}
+  bundle id {{lag.id}} mode inherit
   no shutdown
   {% endfor -%}
 {% endfor -%}

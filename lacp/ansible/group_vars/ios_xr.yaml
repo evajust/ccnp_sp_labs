@@ -1,2 +1,3 @@
 ---
 ansible_network_os: "cisco.iosxr.iosxr"
+napalm_platform: "iosxr_netconf"

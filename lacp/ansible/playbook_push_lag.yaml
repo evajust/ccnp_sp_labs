@@ -1,0 +1,52 @@
+---
+
+- name: Push config with the LAG interfaces module to IOS-XR
+  hosts: ios_xr
+  connection: network_cli
+  tasks:
+    - name: Pushing Config to IOS-XR
+      cisco.iosxr.iosxr_lag_interfaces:
+        config:
+          - name: Bundle-Ether1
+            mode: active
+            links:
+              min_active: 2
+            members:
+              - member: GigabitEthernet0/0/0/0
+                mode: inherit
+              - member: GigabitEthernet0/0/0/1
+                mode: inherit
+              - member: GigabitEthernet0/0/0/2
+                mode: inherit
+              - member: GigabitEthernet0/0/0/3
+                mode: inherit
+        state: merged
+      register: ios_xr_results
+
+    - name: Print Results
+      debug:
+        msg: "{{ ios_xr_results }}"
+
+- name: Push config with the LAG interfaces module to IOS-XE
+  hosts: ios_xe
+  connection: network_cli
+  tasks:
+    - name: Pushing Config to IOS-XE
+      cisco.ios.ios_lag_interfaces:
+        config:
+          - name: Port-channel1
+            members:
+              - member: GigabitEthernet2
+                mode: active
+              - member: GigabitEthernet3
+                mode: active
+              - member: GigabitEthernet4
+                mode: active
+              - member: GigabitEthernet5
+                mode: active
+        state: merged
+      register: ios_xe_results
+
+    - name: Print Results
+      debug:
+        msg: "{{ ios_xe_results }}"

@@ -1,0 +1,24 @@
+---
+
+- name: Push LACP configs via NETCONF
+  hosts: all
+  connection: ansible.netcommon.netconf
+  tasks:
+    - name: Create Template
+      ansible.builtin.template:
+        src: "../../xml-templates/ansible.jinja"
+      register: template
+    
+    - name: Print Template
+      debug:
+        msg: "{{ template }}"
+          #    - name: Get XML Template
+          #      ansible.netcommon.netconf_config:
+          #        content: "{{ lookup('file', '../../xml-templates/ansible.jinja') }}"
+          #      register: results
+          #
+          #    - name: Print Results
+          #      debug:
+          #        msg: "{{ results }}"
+          #
+          #

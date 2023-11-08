@@ -1,10 +1,12 @@
 ---
 
+platform: ios_xe
+
 lag_list:
-  - id: 1
+  - name: Port-channel1
     ip_version: 4
     ip: 10.255.1.1
-    mask: 255.255.255.254
+    prefix_length: 31
     interface_list:
       - GigabitEthernet2
       - GigabitEthernet3

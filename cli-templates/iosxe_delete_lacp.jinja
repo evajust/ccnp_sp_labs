@@ -1,5 +1,5 @@
 {% for lag in lag_list -%}
-no interface Port-channel{{lag.id}}
+no interface {{lag.name}}
 
   {% for interface in lag.interface_list -%}
 interface {{interface}}

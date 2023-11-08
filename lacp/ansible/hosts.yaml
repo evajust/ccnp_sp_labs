@@ -3,13 +3,7 @@ all:
   hosts:
     R1:
       ansible_host: 192.168.2.1
-    R2:
-      ansible_host: 192.168.2.2
 
 ios_xr:
   hosts:
     R1:
-
-ios_xe:
-  hosts:
-    R2:

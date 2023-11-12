@@ -1,0 +1,9 @@
+---
+all:
+  hosts:
+    R2:
+      ansible_host: 192.168.2.2
+
+ios_xe:
+  hosts:
+    R2:

@@ -1,0 +1,23 @@
+---
+
+- name: Configure via RESTCONF
+  hosts: R2
+  connection: local
+
+  tasks:
+    - name: "Configure LACP"
+      uri:
+        url: "https://{{ansible_host}}/restconf/data/openconfig-interfaces:interfaces?content=config"
+        user: "{{ ansible_user }}"
+        password: "{{ ansible_password }}"
+        method: PATCH
+        headers:
+          Accept: 'application/yang-data+json'
+          Content-Type: 'application/yang-data+json'
+        body_format: 'json'
+        body: "{{ lacp_configure }}"
+        validate_certs: False
+        status_code:
+          - 200
+          - 204
+

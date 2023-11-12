@@ -1,6 +1,6 @@
 {% for lag in lag_list -%}
 interface Bundle-Ether{{lag.id}}
-  ipv{{lag.ip_version}} address {{lag.ip}}/{{lag.cidr}}
+  ipv{{lag.ip_version}} address {{lag.ip}}/{{lag.prefix_length}}
   lacp mode active
 
   {% for interface in lag.interface_list -%}

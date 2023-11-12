@@ -1,0 +1,107 @@
+---
+platform: ios_xe
+
+lacp_configure:
+  openconfig-interfaces:interfaces:
+    interface:
+    - config:
+        enabled: true
+        name: GigabitEthernet2
+        type: iana-if-type:ethernetCsmacd
+      name: GigabitEthernet2
+      openconfig-if-ethernet:ethernet:
+        config:
+          auto-negotiate: true
+          enable-flow-control: true
+          openconfig-if-aggregate:aggregate-id: Port-channel1
+      subinterfaces:
+        subinterface:
+        - config:
+            enabled: true
+            index: 0
+          index: 0
+          openconfig-if-ip:ipv6:
+            config:
+              enabled: false
+    - config:
+        enabled: true
+        name: GigabitEthernet3
+        type: iana-if-type:ethernetCsmacd
+      name: GigabitEthernet3
+      openconfig-if-ethernet:ethernet:
+        config:
+          auto-negotiate: true
+          enable-flow-control: true
+          openconfig-if-aggregate:aggregate-id: Port-channel1
+      subinterfaces:
+        subinterface:
+        - config:
+            enabled: true
+            index: 0
+          index: 0
+          openconfig-if-ip:ipv6:
+            config:
+              enabled: false
+    - config:
+        enabled: true
+        name: GigabitEthernet4
+        type: iana-if-type:ethernetCsmacd
+      name: GigabitEthernet4
+      openconfig-if-ethernet:ethernet:
+        config:
+          auto-negotiate: true
+          enable-flow-control: true
+          openconfig-if-aggregate:aggregate-id: Port-channel1
+      subinterfaces:
+        subinterface:
+        - config:
+            enabled: true
+            index: 0
+          index: 0
+          openconfig-if-ip:ipv6:
+            config:
+              enabled: false
+    - config:
+        enabled: true
+        name: GigabitEthernet5
+        type: iana-if-type:ethernetCsmacd
+      name: GigabitEthernet5
+      openconfig-if-ethernet:ethernet:
+        config:
+          auto-negotiate: true
+          enable-flow-control: true
+          openconfig-if-aggregate:aggregate-id: Port-channel1
+      subinterfaces:
+        subinterface:
+        - config:
+            enabled: true
+            index: 0
+          index: 0
+          openconfig-if-ip:ipv6:
+            config:
+              enabled: false
+    - config:
+        enabled: true
+        name: Port-channel1
+        type: iana-if-type:propVirtual
+      name: Port-channel1
+      openconfig-if-aggregate:aggregation:
+        config:
+          lag-type: STATIC
+      subinterfaces:
+        subinterface:
+        - config:
+            enabled: true
+            index: 0
+          index: 0
+          openconfig-if-ip:ipv4:
+            addresses:
+              address:
+              - config:
+                  ip: 10.255.1.1
+                  prefix-length: 31
+                ip: 10.255.1.1
+          openconfig-if-ip:ipv6:
+            config:
+              enabled: false
+  
